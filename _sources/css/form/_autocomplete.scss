@@ -1,0 +1,204 @@
+/*-----------------------------------------------
+    #AUTOCOMPLETE MENU
+-----------------------------------------------*/
+
+.ui-autocomplete {
+    background-color: #FFFFFF;
+    border: 2px solid #2FA3BA;
+    border-radius: 0;
+    border-top: none;
+    padding: 0;
+
+
+    .ui-menu-item {
+        border-radius: 0;
+        font-size: 16px;
+
+
+        a {
+            color: #2FA3BA;
+            line-height: 44px;
+            padding: 0 5px;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+
+
+        .ui-state-focus {
+            background: none repeat scroll 0 0 #2FA3BA;
+            border: none;
+            border-radius: 0;
+            color: #FFFFFF;
+            letter-spacing: normal;
+            margin: 0;
+        }
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #AUTOCOMPLETE TAGS
+-----------------------------------------------*/
+
+.list-etiquettes {
+    margin-bottom: 30px;
+
+    .size8of12 &.align-center {
+        margin-bottom: 10px;
+        text-align: left;
+
+        > li {
+            margin: 0 10px 20px 0;
+        }
+    }
+
+    &.align-center > li {
+        margin: 0 10px 30px;
+    }
+
+
+    > li {
+        border: 1px solid #2FA3BA;
+        cursor: pointer;
+        display: inline-block;
+        height: 42px;
+        line-height: normal;
+        margin: 20px 10px 0 0;
+        position: relative;
+        text-align: left;
+        vertical-align: middle;
+
+        &.latest { display: none; }
+
+        &.showned {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &.link-more {
+            background-color: #2FA3BA;
+            color: #FFFFFF;
+            font-weight: bold;
+            line-height: 42px;
+            padding: 0 5px;
+
+            &.reduce {
+                .more {display: none;}
+                .less {display: inline;}
+            }
+
+
+            .less {display: none;}
+        }
+
+
+        .etiquette-level,
+        .etiquette-delete {
+            display: inline-block;
+            height: 100%;
+            line-height: 37px;
+            text-align: center;
+            vertical-align: middle;
+            width: 33px;
+        }
+
+
+        .etiquette-level {
+            border-right: 1px solid #2FA3BA;
+
+            &:hover .level-menu {
+                height: 129px;
+            }
+        }
+
+
+        .etiquette-label {
+            color: #2FA3BA;
+            display: inline-block;
+            line-height: 21px;
+            max-height: 100%;
+            max-width: 135px;
+            overflow: hidden;
+            padding: 0 5px;
+            vertical-align: middle;
+        }
+
+
+        .etiquette-delete {
+            background-color: #2FA3BA;
+
+            &:hover {
+                background-color: #D5443E;
+
+                .picto-close-white-big {
+                    height: 10px;
+                    width: 10px;
+                }
+            }
+
+
+            .picto-close-white-big {
+                @include mytransition(all, .2s, ease-in-out);
+            }
+        }
+
+
+        .etiquette-level,
+        .level-menu li {
+            background-color: #FFFFFF;
+
+            &:hover {
+                background-color: #2FA3BA;
+            }
+
+            .picto { text-indent: -9999px; }
+        }
+
+
+        // STARS MENU
+        .level-menu {
+            @include mytransition(height, .2s, ease-in-out);
+            border-left: 1px solid #2FA3BA;
+            border-right: 1px solid #2FA3BA;
+            height: 0;
+            left: -1px;
+            overflow: hidden;
+            position: absolute;
+            top: 43px;
+            width: 33px;
+            z-index: 2;
+
+
+            li {
+                border-bottom: 1px solid #2FA3BA;
+                display: block;
+                height: 42px;
+                line-height: 38px;
+                text-align: center;
+            }
+        }
+
+
+        // MODE EDIT DE L'ETIQUETTE
+        &.edit-mode {
+            .level-menu {
+                height: 130px;
+            }
+        }
+
+
+    }
+
+}
+
+
+.star-legend .picto {
+    height: 14px;
+    margin-left: 15px;
+    width: 15px;
+}

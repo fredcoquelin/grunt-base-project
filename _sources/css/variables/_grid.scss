@@ -1,0 +1,23 @@
+/*-----------------------------------------------
+    #GRID VALUE
+-----------------------------------------------*/
+
+$wrapper: 1020px;
+$column-width: 53px;
+$column-gutter-width: 16px;
+$columns: 12;
+$container-width: $columns * $column-width + ($columns - 1) * ($column-gutter-width * 2) + $column-gutter-width * 2;
+$margin: percentage($column-gutter-width / $container-width);
+$padding: 30px;
+
+
+
+
+
+/*--------------------------------------
+    #DEVICE SCREEN
+--------------------------------------*/
+
+$tablet-limit: 768px;
+$screen-limit: 1024px;
+$mobile-limit: 700px;

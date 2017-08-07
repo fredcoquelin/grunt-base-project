@@ -1,0 +1,43 @@
+/*--------------------------------------
+ #PICTOS (MADE WITH GRUNT-SPRITESMITH)
+ --------------------------------------*/
+
+@mixin custom-sprite($sprite, $is-2x: false) {
+    // Image
+    $sprite-image: nth($sprite, 9);
+    background-image: url(#{$sprite-image});
+    
+    // Width / Height         
+    width: nth($sprite, 5) / if($is-2x, 2, 1);
+    height: nth($sprite, 6) / if($is-2x, 2, 1);
+    
+    // Position
+    $sprite-offset-x: nth($sprite, 3);
+    $sprite-offset-y: nth($sprite, 4);
+    background-position: $sprite-offset-x / if($is-2x, 2, 1)  $sprite-offset-y / if($is-2x, 2, 1);
+    
+    // Size
+    background-size: $spritesheet-width / if($is-2x, 2, 1) $spritesheet-height / if($is-2x, 2, 1);
+    
+    // Others
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@mixin output-sprites($sprites, $is-2x: false, $prefix: 'icon') {
+    @each $sprite in $sprites {
+        $sprite-name: nth($sprite, 10);
+        .#{$prefix}-#{$sprite-name} {
+            @include custom-sprite($sprite, $is-2x);
+        }
+    }
+}
+
+// Output
+@import "sprite-pictos";
+@include output-sprites($spritesheet-sprites, false, 'picto');
+
+@import "sprite-pictos2x";
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
+    @include output-sprites($spritesheet-sprites, true, 'picto');
+}

@@ -1,0 +1,260 @@
+/*-----------------------------------------------
+    #HTML
+-----------------------------------------------*/
+
+html {
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #BLOCKS
+-----------------------------------------------*/
+
+hr {
+    border-top: 1px solid #E8E9EB;
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #IMAGES
+-----------------------------------------------*/
+
+img {
+    max-width: 100%;
+
+    &.border {
+        border: 1px solid #CCCCCC;
+    }
+
+    &.right {
+        margin-bottom: 0;
+        margin-left: 20px;
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #TABLE
+-----------------------------------------------*/
+
+// Tableau utilisé pour listé les templates (ex:)
+.pagetable {
+    width: 100%;
+
+    td,
+    th {
+        border-bottom: 1px solid #B1B6BB;
+        line-height: 40px;
+        padding: 0 10px;
+    }
+
+    th {
+        background-color: #2FA3BA;
+        border-bottom: none;
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    .ok {
+        color: #2FA3BA;
+        font-weight: bold;
+    }
+
+    .nok {
+        color: #D5443E;
+        font-weight: bold;
+    }
+
+    .semiok {
+        color: #1A5C69;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #POSITION
+-----------------------------------------------*/
+
+.inlineblock {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+
+
+
+
+/*-----------------------------------------------
+    #USER NOTIFICATION
+-----------------------------------------------*/
+
+.background {
+    background-color: #F0EEEB;
+    margin-bottom: 20px;
+    min-height: 40px;
+    padding: 10px 20px;
+    position: relative;
+    top: 20px;
+
+    &.confirmation,
+    &.information,
+    &.infoerreur {
+        padding-bottom: 1px;
+        padding-left: 20px;
+
+
+        .picto-confirmation,
+        .picto-noconfirmation,
+        .picto-information {
+            clear: left;
+            float: left;
+            left: 0;
+            margin-top: 10px;
+            position: relative;
+            top: 0;
+        }
+
+
+        p {
+            line-height: 22px;
+            overflow: visible;
+            padding-bottom: 10px;
+            padding-left: 50px;
+        }
+    }
+
+    &.information {
+        background-color: #424242;
+        color: #FFFFFF;
+
+        a {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+    }
+
+    &.infoerreur ul {
+        list-style-type: square;
+        padding-left: 13px;
+    }
+
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #ADS
+-----------------------------------------------*/
+
+.pub {
+    margin-bottom: 30px;
+
+    img {
+        display: block;
+        height: auto;
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #BARRE DE PARTAGE RÉSEAUX SOCIAUX
+-----------------------------------------------*/
+
+.partage {
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
+    li {
+        background-color: #888888;
+        border-radius: 3px;
+        display: block;
+        font-size: 13px;
+        margin-bottom: 10px;
+
+        &:hover {
+            background-color: #424242;
+        }
+
+
+        a {
+            color: #FFFFFF;
+            display: block;
+            line-height: 25px;
+            padding: 0 10px;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+
+            .picto {
+                margin-right: 8px;
+                width: 16px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*-----------------------------------------------
+    #BLOC COOKIES LAW
+-----------------------------------------------*/
+
+.cookies {
+    background-color: #424242;
+    bottom: 120px;
+    color: #FFFFFF;
+    display: none;
+    line-height: normal;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    width: 260px;
+    z-index: 3;
+
+    .picto {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
+}

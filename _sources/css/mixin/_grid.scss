@@ -1,0 +1,12 @@
+/*--------------------------------------
+    #MIXIN POUR LA GRILLE FLEXIBLE
+--------------------------------------*/
+
+@mixin columns-flexible($cols) {
+    width: percentage(($cols * $column-width + ($column-gutter-width * 2) * ($cols - 1)) / $container-width);
+    margin: {
+        left: $margin;
+        right: $margin;
+    }
+}
+

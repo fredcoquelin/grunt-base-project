@@ -1,0 +1,122 @@
+/*-----------------------------------------------
+    #FORMS
+-----------------------------------------------*/
+
+form {
+
+    label,
+    .label {
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+
+    .field-validation-error {
+        color: #EC342E;
+        display: block;
+        font-size: 12px;
+        line-height: normal;
+        width: 100%;
+    }
+
+
+    input[type="file"] {
+        + .field-validation-error {
+            display: block;
+        }
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #PRECISION
+-----------------------------------------------*/
+
+.precision {
+    @extend .background;
+
+    &.erreur {
+        background-color: #FAE8EB;
+        color: #CC0000;
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #CHECKBOX LIST
+-----------------------------------------------*/
+
+.check-list {
+    > li {
+
+        p {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0;
+            vertical-align: middle;
+        }
+
+
+        > label {
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+
+        ul {
+            display: none;
+            padding-left: 38px;
+        }
+
+
+        .picto-check-list-close {
+            margin-right: 10px;
+        }
+
+
+        &.expanded {
+            .picto-check-list-close {
+                height: 4px;
+                margin-right: 4px;
+                width: 10px;
+            }
+
+
+            ul {display: block;}
+        }
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #TABLET CSS
+-----------------------------------------------*/
+
+@media only screen and (max-width: $tablet-limit) {
+
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #CSS MOBILE
+-----------------------------------------------*/
+
+@media only screen and (max-width: $mobile-limit) {
+
+}

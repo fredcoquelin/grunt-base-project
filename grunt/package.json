@@ -1,0 +1,25 @@
+{
+  "name": "ressources",
+  "version": "0.1.0",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "grunt": "^1.0.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-graceful": "^1.0.0",
+    "grunt-notify": "^0.4.5",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.0",
+    "grunt-spritesmith": "^6.4.0",
+    "load-grunt-tasks": "^3.5.0",
+    "node-bourbon": "^4.2.8"
+  },
+  "dependencies": {
+    "lodash": "^4.13.1"
+  }
+}

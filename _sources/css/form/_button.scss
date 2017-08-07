@@ -1,0 +1,25 @@
+/*-----------------------------------------------
+    #BUTTON
+-----------------------------------------------*/
+
+.submit,
+input[type="submit"] {
+    -webkit-appearance: none;
+    background: #CCCCCC;
+    border: none;
+    border-radius: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+
+    &[disabled="disabled"],
+    &.disabled {
+        background-color: #B1B6BB;
+        cursor: default;
+    }
+
+    &:hover {
+        background-color: #DDDDDD;
+    }
+}

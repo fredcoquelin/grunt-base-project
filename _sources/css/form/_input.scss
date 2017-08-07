@@ -1,0 +1,128 @@
+/*-----------------------------------------------
+    #INPUTS
+-----------------------------------------------*/
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea,
+select,
+option {
+    box-sizing: border-box;
+    font-family: arial;
+
+    &:active,
+    &:focus {
+
+    }
+
+    &.erreur,
+    &.input-validation-error {
+        border-color: #EC342E;
+    }
+
+    &[disabled] {
+        border-color: #E8E9EB;
+        color: #B1B6BB;
+    }
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    -webkit-appearance: none;
+    border: 1px solid #969CA4;
+    border-radius: 0;
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+    outline: none;
+    padding: 0;
+    text-indent: 10px;
+    width: 100%;
+
+    &.input-small {
+        display: inline-block;
+        vertical-align: middle;
+        width: 60px;
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #CHECKBOXS
+-----------------------------------------------*/
+
+input[type="checkbox"],
+input[type="radio"] {
+    left: -9999px;
+    position: absolute;
+
+    + label,
+    + span,
+    + input[type="hidden"] + label {
+        cursor: pointer;
+
+
+        .picto-check {
+            margin-right: 5px;
+            vertical-align: sub;
+        }
+
+
+        .picto-radio {
+            margin-right: 8px;
+        }
+    }
+
+    &:checked + label,
+    &:checked + span,
+    &:checked~.multiligne, //Bug fix sur Chrome Mac
+    &:checked + input[type="hidden"] + label,
+    &:checked~label {
+
+        .picto-check {
+            // Include du picto en état coché, exemple: @include pictos-sprite('checked');
+        }
+
+        .picto-radio {
+            // Include du picto en état coché, exemple: @include pictos-sprite('radioed');
+        }
+    }
+
+    &:focus + label,
+    &:focus + span,
+    &:focus~.multiligne, //Bug fix sur Chrome Mac
+    &:focus + input[type="hidden"] + label,
+    &:focus~label {
+        color: #2FA3BA;
+    }
+
+}
+
+
+/*Style IE8 et inférieur*/
+.lt-ie8 input[type="checkbox"] {
+    display: inline-block;
+    left: 0;
+    position: relative;
+    vertical-align: top;
+
+
+    + label,
+    + span,
+    + input + label {
+        display: inline-block;
+        vertical-align: middle;
+
+        .picto {
+            display: none;
+        }
+    }
+}

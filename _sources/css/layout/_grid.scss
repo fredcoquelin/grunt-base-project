@@ -1,0 +1,214 @@
+/*-----------------------------------------------
+    #Wrapper
+-----------------------------------------------*/
+
+.wrapper {
+    margin: 0 auto;
+    max-width: $wrapper;
+}
+
+
+
+
+
+
+/*-----------------------------------------------
+    #Gestion des lignes de la grille
+-----------------------------------------------*/
+
+.row {
+    overflow: hidden;
+    padding-bottom: $padding;
+    padding-top: $padding;
+    position: relative;
+
+
+    &.ssmarge {
+        padding: 0;
+    }
+
+}
+
+
+
+
+
+
+/*-----------------------------------------------
+    #Gestion des colonnes de la grille
+-----------------------------------------------*/
+
+.col {
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+
+    &.margel {
+        padding-left: percentage(2 * $column-gutter-width / $container-width);
+    }
+
+    &.marger {
+        padding-right: percentage(2 * $column-gutter-width / $container-width);
+    }
+
+    &.marge {
+        padding-left: percentage(2 * $column-gutter-width / $container-width);
+        padding-right: percentage(2 * $column-gutter-width / $container-width);
+    }
+
+}
+
+
+// Appel à la mixin pour la création des colonnes de la grille
+@for $i from 1 through $columns {
+    .size#{$i}of#{$columns} {
+        @include columns-flexible($i);
+    }
+}
+
+
+.size100pourc {
+    width: 100%;
+}
+
+.size80pourc {
+    width: 80%;
+}
+
+.size75pourc {
+    width: 75%;
+}
+
+.size66pourc {
+    width: 66.666666666666%;
+}
+
+.size60pourc {
+    width: 60%;
+}
+
+.size50pourc {
+    width: 50%;
+}
+
+.size33pourc {
+    width: 33.333333333333%;
+}
+
+.size20pourc {
+    width: 20%;
+}
+
+.size25pourc {
+    width: 25%;
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #HIDE/SHOW
+-----------------------------------------------*/
+
+// Desktop
+.hide-web {
+    display: none;
+}
+
+.show-web {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.show-tabportrait {
+    display: none;
+
+    &.col {
+        display: block;
+    }
+}
+
+.show-1024 {
+    display: none;
+
+    &.col {
+        display: block;
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #1024
+-----------------------------------------------*/
+
+@media only screen and (max-width: $screen-limit) {
+    .hide-1024 {
+        display: none;
+    }
+
+    .show-1024 {
+        display: inline-block;
+        vertical-align: middle;
+
+        &.col {
+            @include columns-flexible(12);
+        }
+
+        &.block {
+            display: block;
+        }
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #TABLET
+-----------------------------------------------*/
+
+@media only screen and (max-width: $tablet-limit) {
+    .hide-tabportrait {
+        display: none;
+    }
+
+    .show-tabportrait {
+        display: inline-block;
+        vertical-align: middle;
+
+        &.col {
+            @include columns-flexible(12);
+        }
+
+        &.block {
+            display: block;
+        }
+    }
+}
+
+
+
+
+
+/*-----------------------------------------------
+    #MOBILE
+-----------------------------------------------*/
+
+@media only screen and (max-width: $mobile-limit) {
+    .show-mobile {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .hide-mobile { display: none; }
+
+    body  .col.show-mobile {
+        @include columns-flexible(12);
+        padding: 0;
+    }
+}
