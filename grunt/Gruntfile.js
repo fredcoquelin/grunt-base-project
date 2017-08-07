@@ -1,22 +1,20 @@
 /*
-
-UTILISATION :
+USE :
 
 - Watch
     grunt
 
-- Déploiement recette :
-    grunt recette
+- Release deployment :
+    grunt release
 
-- Concaténation JS :
+- JS concatenation :
     grunt concat
 
-- Minification JS :
+- JS minification :
     grunt minjs
 
 - Packaging :
     grunt package -tag=1.1.5
-
 */
 
 
@@ -26,21 +24,21 @@ module.exports = function(grunt) {
     var tag = grunt.option('tag') || null; // Tag
     var production = grunt.option('production') || false; // Production
     var paramForce = grunt.option('force') || false;
-    var local = grunt.option('local') || false; // Recette
+    var local = grunt.option('local') || false; // release
 
-    // CHEMIN d'accès au répertoire COMMUN
+    // PATH TO COMMON DIRECTORY
     var pathToCommun = '../../commun/';
-    // CHEMINS d'accès aux répertoires projets
+    // PATHS to project directory
     var pathsToProject = '../';
-    
-    // CHEMINS pour les déploiement sur plateform de recette
-    
+
+    // PATH for release deployment
     // Mac OS Path
     var pathToSrvIIS02 = "/Volumes/wwwroot/ressources/";
-    
+
     // Windows Path
-    if (process.platform == 'win32')
+    if (process.platform == 'win32') {
         pathToSrvIIS02 = "\\\\srv-iis02\\wwwroot\\ressources\\";
+    }
 
     // SOURCES JS
     var sourcesJS = {
@@ -64,7 +62,7 @@ module.exports = function(grunt) {
     };
 
 
-    // CONF commune copy for tag
+    // COPY CONF
     var confCopyTag = {
         main: {
             files: [
@@ -74,7 +72,7 @@ module.exports = function(grunt) {
                 { expand: true, cwd: pathsToProject + '/', src: ['fonts/**'], dest: pathsToProject + '/tags/' + tag + '/'}
             ]
         },
-        recette: {
+        release: {
              files: [
                 { expand: true, cwd: pathsToProject + '/', src: ['css/**'], dest: pathToSrvIIS02 + app },
                 { expand: true, cwd: pathsToProject + '/', src: ['js/**'], dest: pathToSrvIIS02 + app },
@@ -86,7 +84,7 @@ module.exports = function(grunt) {
     };
 
 
-    // CONFIGURATION de l'application
+    // APP CONFIGURATION
     var conf = {
         pkg: grunt.file.readJSON('package.json'),
         // SASS
@@ -191,8 +189,7 @@ module.exports = function(grunt) {
     };
 
 
-    // CHARGEMENT DE LA CONF GRUNT
-
+    // LOAD GRUNT CONF
     // To use grunt-sass
     require('load-grunt-tasks')(grunt);
 
@@ -202,16 +199,16 @@ module.exports = function(grunt) {
     // TASKS
     grunt.registerTask('default', ['browserSync', 'watch']);
     grunt.registerTask('minjs', ['concat', 'uglify']);
-    grunt.registerTask('recette', ['sprite', 'sass', 'postcss', 'concat', 'imagemin', 'copy:recette' ] ); // déploiement vers ressources.regionsjob.dom
+    grunt.registerTask('release', ['sprite', 'sass', 'postcss', 'concat', 'imagemin', 'copy:release' ] );
 
 
-    // Le numéro de tag doit être renseigné et correct
+    // -tag MUST BE PRESENT AND CORRECT
     if (tag !== null && /^[1-9](.)[0-9]{2}(.)[0-9]{2}$/.test(tag)) {
         grunt.registerTask('package', ['sprite', 'sass', 'postcss', 'minjs', 'imagemin' ,'copy:main']);
     }
 
 
-    // CHARGEMENT PLUGINS
+    // LOAD PLUGINS
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-uglify');
